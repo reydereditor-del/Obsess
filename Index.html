@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Reyder System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-orb orb-a"></div>
+<div class="bg-orb orb-b"></div>
+<div class="bg-grid"></div>
+
+<main class="app">
+    <section class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">REYDER SYSTEM</p>
+            <h1>Bugungi missiya: kuchli Reyderga dalil qoldir.</h1>
+            <p class="hero-text">
+                Java, English va Focus — sening asosiy upgrade yo‘ling.
+                Perfect kun shart emas. Nol kun bo‘lmasin.
+            </p>
+
+            <div class="hero-buttons">
+                <button id="quickStartBtn">Bugungi rejani boshlash</button>
+                <button id="switchModeBtn" class="secondary">Mode almashtirish</button>
+                <button id="loadTodayBtn" class="secondary">Bugungi kun</button>
+            </div>
+        </div>
+
+        <aside class="status-card">
+            <div class="status-row">
+                <span id="statusDot" class="status-dot offline"></span>
+                <span id="backendStatus">Backend tekshirilmoqda...</span>
+            </div>
+
+            <div class="date-box">
+                <span>Ochilgan sana</span>
+                <strong id="todayDate">----</strong>
+            </div>
+
+            <div class="future-box">
+                <span>Ideal Future</span>
+                <p>Pul + skill + intizom = erkinlik.</p>
+            </div>
+        </aside>
+    </section>
+
+    <section class="summary-grid">
+        <article class="summary-card">
+            <span class="summary-label">Kun holati</span>
+            <strong id="dayStatus">Tekshirilmoqda</strong>
+            <p id="dayMessage">Ma’lumot yuklanmoqda...</p>
+        </article>
+
+        <article class="summary-card">
+            <span class="summary-label">Mode</span>
+            <strong id="modeTitle">Normal Mode</strong>
+            <p id="modeMessage">Bugungi energiyangga mos rejim.</p>
+        </article>
+
+        <article class="summary-card">
+            <span class="summary-label">Ochilgan</span>
+            <strong id="openedDateBadge">Today</strong>
+            <p>Sana bo‘yicha progressni ko‘rish va edit qilish mumkin.</p>
+        </article>
+        <article class="summary-card weekly-card">
+    <span class="summary-label">Weekly System</span>
+    <strong id="weeklyXp">0 XP</strong>
+    <p id="weeklyMessage">7 kunlik statistika yuklanmoqda...</p>
+
+    <div class="weekly-mini-grid">
+        <div>
+            <span>Saved</span>
+            <b id="weeklySavedDays">0/7</b>
+        </div>
+        <div>
+            <span>Ideal</span>
+            <b id="weeklyIdealDays">0</b>
+        </div>
+        <div>
+            <span>Focus</span>
+            <b id="weeklyAverageFocus">0</b>
+        </div>
+    </div>
+</article>
+    </section>
+
+    <section class="grid">
+        <div class="card progress-panel">
+            <div class="card-top">
+                <div>
+                    <p class="label">Progress Core</p>
+                    <h2>XP / Level / Focus</h2>
+                </div>
+            </div>
+
+            <div id="progressCircle" class="progress-circle">
+                <div>
+                    <strong id="progressPercent">0%</strong>
+                    <span>completed</span>
+                </div>
+            </div>
+
+          <div class="stats">
+    <div>
+        <span>XP</span>
+        <strong id="todayXp">+0</strong>
+    </div>
+    <div>
+        <span>Level</span>
+        <strong id="level">1</strong>
+    </div>
+    <div>
+        <span>Focus</span>
+        <strong id="focusScore">72</strong>
+    </div>
+    <div>
+        <span>Streak</span>
+        <strong id="streak">0</strong>
+    </div>
+</div>
+        </div>
+
+        <div class="card rule-card">
+            <p class="label">Sana nazorati</p>
+            <h2>Oldingi kunlarni ham ochib o‘zgartira olasan.</h2>
+            <p>
+                History orqali eski sanani ochasan. Task, mode va dalil o‘sha sanaga saqlanadi.
+            </p>
+
+            <div class="date-control">
+                <label for="datePicker">Sana tanlash</label>
+                <div class="date-row">
+                    <input id="datePicker" type="date">
+                    <button id="loadDateBtn" class="secondary">Ochish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-title">
+        <div>
+            <p class="label">Daily Quests</p>
+            <h2>Vazifalar</h2>
+        </div>
+        <span id="taskSummary">0/3 bajarildi</span>
+    </section>
+
+    <section id="tasksContainer" class="tasks"></section>
+
+    <section class="grid bottom">
+        <div class="card">
+            <p class="label">Bugungi dalil</p>
+            <h2>Bugun nimani qilding?</h2>
+            <p class="muted">Bitta aniq gap yoz. Bu sening progress isboting.</p>
+
+            <textarea id="evidenceText" placeholder="Masalan: Java’da loop mashq qildim. English’dan 8 ta gap tuzdim."></textarea>
+
+            <div class="save-row">
+                <button id="saveEvidenceBtn">Dalilni saqlash</button>
+                <span id="saveStatus"></span>
+            </div>
+        </div>
+
+        <div class="card rescue-card">
+            <p class="label">Focus Rescue</p>
+            <h2>Chalg‘iyapsanmi?</h2>
+            <p>
+                Bu dangasalik emas. Miyang oson dopamin qidiryapti.
+                Hozir mini-vazifa yetadi.
+            </p>
+
+            <button id="rescueBtn" class="secondary">Men chalg‘iyapman</button>
+
+            <div id="rescueBox" class="rescue-box hidden">
+                <strong>Hozirgi buyruq:</strong>
+                <p>Telefonni chetga qo‘y. 10 minut Java yoki 5 minut English qil. Keyin o‘zingga ruxsat berasan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="history-section">
+        <div class="section-title history-title">
+            <div>
+                <p class="label">History</p>
+                <h2>Saqlangan kunlar</h2>
+            </div>
+            <button id="refreshHistoryBtn" class="secondary">Yangilash</button>
+        </div>
+
+        <div id="historyContainer" class="history-list"></div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
